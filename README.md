@@ -2,6 +2,8 @@
 
 These are a set of simple scripts to help with automating the creation/deletion of pools of different types for benchmarking.
 
+In no way should these scripts be considered to be extensively tested. They have been put together to allow for quick and direty configuration of Ceph to allow quick benchmarks to be run.
+
 **CreatePool.sh**
 This script will create a pool to allow benchmarks to be run against it.
 You have an option of choosing if this pool is a replica pool or an EC pool.
