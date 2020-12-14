@@ -21,7 +21,7 @@ ceph osd pool rm "$PoolName" "$PoolName" --yes-i-really-really-mean-it
 for name in $(rados lspools)
 do
     echo $name
-    if [ "$name" -eq "$PoolName"_EC];
+    if [ "$name" -eq "$PoolName"_EC ];
     then 
         ceph osd pool rm "$PoolName"_EC "$PoolName"_EC --yes-i-really-really-mean-it
         ceph osd erasure-code-profile rm $PoolName
