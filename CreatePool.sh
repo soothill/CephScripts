@@ -17,7 +17,7 @@ then
   echo Protection :- Protection type Replica or EC
 fi
 
-if [ "$Protection" -eq "Replica" ]
+if [ "$Protection" == "Replica" ]
 then
     ceph osd pool create $PoolName $PGNum  $PGNum replicated 
 fi
