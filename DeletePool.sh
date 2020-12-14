@@ -14,5 +14,5 @@ then
   echo
 fi
 
-ceph osd pool rm $Poolname $Poolname --yes-i-really-really-mean-it
+ceph osd pool rm "$Poolname" "$Poolname" --yes-i-really-really-mean-it
 
