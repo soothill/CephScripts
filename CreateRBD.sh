@@ -39,7 +39,7 @@ do
     then
        rbd create $Poolname$counter --size $SizeOfDevice -p $Poolname
     else
-        rbd create $Poolname$counter --size $SizeOfDevice -p $Poolname --data-pool $Poolname + "_EC"
+        rbd create $Poolname$counter --size $SizeOfDevice -p $Poolname --data-pool $Poolname"_EC"
     fi
     ((counter++))
 done
