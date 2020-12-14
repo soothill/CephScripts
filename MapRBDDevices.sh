@@ -18,4 +18,5 @@ fi
 for RBDDevname in $(rbd ls -p $Poolname)
 do
     echo $RBDDevname
+    rbd device map $Poolname/$RBDDevname
 done
