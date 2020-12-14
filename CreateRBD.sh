@@ -9,6 +9,7 @@ SizeOfDevice=$3
 if [ "$#" -eq "0" ];
 then
   echo
+  echo This script will create a given number of RBD Devices in a particular pool
   echo
   echo Parameters need :-
   echo

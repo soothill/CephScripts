@@ -7,6 +7,7 @@ Poolname=$1
 if [ "$#" -eq "0" ];
 then
   echo
+  echo This script will delete a given pool
   echo
   echo Parameters need :-
   echo
