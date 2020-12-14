@@ -19,5 +19,5 @@ fi
 
 if [ "$Protection" == "Replica" ]
 then
-    ceph osd pool create $PoolName $PGNum  $PGNum replicated 
+    ceph osd pool create $PoolName $PGNum  $PGNum replicated --autoscale-mode=off
 fi
