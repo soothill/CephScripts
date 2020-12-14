@@ -14,7 +14,7 @@ then
   echo
   echo PoolName :- Name of pool to be deleted
   echo NumberOfDevices :- Number of RBD devices to create
-  echo SizeOfDevice :- Size in Gbytes
+  echo SizeOfDevice :- Size in MBytes
   echo
   exit 1
 fi
