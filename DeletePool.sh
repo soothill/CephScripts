@@ -20,7 +20,6 @@ ceph config set mon mon_allow_pool_delete true
 ceph osd pool rm "$PoolName" "$PoolName" --yes-i-really-really-mean-it
 for name in $(rados lspools)
 do
-    echo $name
     if [ "$name" == "$PoolName"_EC ];
     then 
         ceph osd pool rm "$PoolName"_EC "$PoolName"_EC --yes-i-really-really-mean-it
