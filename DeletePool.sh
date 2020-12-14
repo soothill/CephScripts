@@ -2,7 +2,7 @@
 
 # Delete a Pool
 
-Poolname = $1
+Poolname=$1
 
 if [ "$#" -eq "0" ];
 then
