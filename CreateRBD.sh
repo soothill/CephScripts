@@ -5,7 +5,8 @@
 Poolname=$1
 NumberOfDevices=$2
 SizeOfDevice=$3
-EC=$4
+EC="N"
+
 
 if [ "$#" -eq "0" ];
 then
@@ -17,17 +18,24 @@ then
   echo PoolName :- Name of pool to be deleted
   echo NumberOfDevices :- Number of RBD devices to create
   echo SizeOfDevice :- Size in MBytes
-  echo EC :- Should we use EC for data pool Y/N
   echo
   exit 1
 fi
 
 rbd pool init $Poolname
 
+for name in $(rados lspools)
+do
+    if [ "$name" == "$PoolName"_EC ];
+    then 
+        EC="Y"
+    fi
+done
+
 counter=1
 while [ $counter -le $NumberOfDevices ]
 do
-    if [ $EC == "Y" ]
+    if [ $EC == "N" ]
     then
        rbd create $Poolname$counter --size $SizeOfDevice -p $Poolname
     else
