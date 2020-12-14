@@ -2,7 +2,7 @@
 
 # Delete a Pool
 
-Poolname=$1
+PoolName=$1
 
 if [ "$#" -eq "0" ];
 then
@@ -17,6 +17,15 @@ then
 fi
 
 ceph config set mon mon_allow_pool_delete true
-ceph osd pool rm "$Poolname" "$Poolname" --yes-i-really-really-mean-it
+ceph osd pool rm "$PoolName" "$PoolName" --yes-i-really-really-mean-it
+for name in $(rados lspools)
+do
+    echo $name
+    if [ "$name" -eq "$PoolName"_EC];
+    then 
+        ceph osd pool rm "$PoolName"_EC "$PoolName"_EC --yes-i-really-really-mean-it
+        ceph osd erasure-code-profile rm $PoolName
+    fi
+done
 ceph config set mon mon_allow_pool_delete false
 

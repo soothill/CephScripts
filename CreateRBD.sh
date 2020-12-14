@@ -5,6 +5,7 @@
 Poolname=$1
 NumberOfDevices=$2
 SizeOfDevice=$3
+EC=$4
 
 if [ "$#" -eq "0" ];
 then
@@ -16,6 +17,7 @@ then
   echo PoolName :- Name of pool to be deleted
   echo NumberOfDevices :- Number of RBD devices to create
   echo SizeOfDevice :- Size in MBytes
+  echo EC :- Should we use EC for data pool Y/N
   echo
   exit 1
 fi
@@ -25,7 +27,12 @@ rbd pool init $Poolname
 counter=1
 while [ $counter -le $NumberOfDevices ]
 do
-    rbd create $Poolname$counter --size $SizeOfDevice -p $Poolname
+    if [ $EC == "Y" ]
+    then
+       rbd create $Poolname$counter --size $SizeOfDevice -p $Poolname
+    else
+        rbd create $Poolname$counter --size $SizeOfDevice -p $Poolname --data-pool $Poolname + "_EC"
+    fi
     ((counter++))
 done
 
