@@ -1,5 +1,4 @@
-#head
-Ceph Scripts to help with benchmarking
+#Ceph Scripts to help with benchmarking
 
 These are a set of simple scripts to help with automating the creation/deletion of pools of different types for benchmarking.
 
