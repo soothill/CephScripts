@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Change Number of Replicas on pool
+
+Poolname = $1
+Replicas = $2
+
