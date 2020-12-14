@@ -16,10 +16,17 @@ then
   echo NumberOfDevices :- Number of RBD devices to create
   echo SizeOfDevice :- Size in Gbytes
   echo
+  exit 1
 fi
 
 rbd pool init $Poolname
 
-rbd create "$Poolname"1 --size $SizeOfDevice -p $Poolname
+counter=1
+while [ $counter -le $NumberOfDevices]
+
+    rbd create $Poolname+$Counter --size $SizeOfDevice -p $Poolname
+    ((counter++))
+done
 
 
+rbd ls -l $Poolname

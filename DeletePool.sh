@@ -12,6 +12,7 @@ then
   echo
   echo PoolName :- Name of pool to be deleted
   echo
+  exit 1
 fi
 
 ceph config set mon mon_allow_pool_delete true

@@ -14,6 +14,7 @@ then
   echo PoolName :- Name of pool to be created
   echo Replicas :- Number of Replicas
   echo 
+  exit 1
 fi
 
 ceph osd pool set $Poolname size $Replicas

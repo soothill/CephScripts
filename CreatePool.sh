@@ -15,6 +15,7 @@ then
   echo PoolName :- Name of pool to be created
   echo PGNum :- Number of PGs
   echo Protection :- Protection type Replica or EC
+  exit 1
 fi
 
 if [ "$Protection" == "Replica" ]
