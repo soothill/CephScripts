@@ -46,6 +46,8 @@ fi
 
 # Stop RadosGW processes
 
+ceph orch stop rgw
+
 # Copy old pool to new pool
 
 rados cppool $PoolName $PoolName.new
@@ -55,4 +57,13 @@ rados cppool $PoolName $PoolName.new
 ceph osd pool rename $PoolName $PoolName.old
 
 ceph osd pool rename $PoolName.new $PoolName
+
+ceph orch start rgw
+
+ceph config set mon mon_allow_pool_delete true
+
+ceph osd pool rm $PoolName.old $PoolName.old --yes-i-really-really-mean-it
+
+ceph config set mon mon_allow_pool_delete false
+
 
