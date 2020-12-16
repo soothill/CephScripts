@@ -7,7 +7,7 @@ PGNUM=$2
 K=$3
 M=$4
 PoolName=default.rgw.buckets.data
-PoolName=Test
+
 
 
 if [ "$#" -eq "0" ];
