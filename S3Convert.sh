@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Create RBD Devices
+# Convert a S3 pool from Replica to EC
 
 Protection=$1
 PGNUM=$2
