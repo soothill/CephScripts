@@ -29,7 +29,6 @@ fi
 if [ "$Protection" == "Replica" ]
 then
     ceph osd pool create $PoolName.new $PGNum  $PGNum replicated --autoscale-mode=off
-    exit 0
 fi
 
 if [ "$Protection" == "EC" ]
